@@ -25,6 +25,10 @@ public class Student{ // singleTorn
         return student;
     }
 
+    public void getData(){ // 학생의 name에 맞게 액셀파일에서 정보를 불러오는 메소드
+
+    }
+
     public String getTrack() {
         return track;
     }
@@ -49,9 +53,7 @@ public class Student{ // singleTorn
     public void setPw(int pw) {
         this.pw = pw;
     }
-    public int getBirthday_date() {
-        return birthday_date;
-    }
+    public int getBirthday_date() {return birthday_date; }
     public void setBirthday_date(int birthday_date) {
         this.birthday_date = birthday_date;
     }

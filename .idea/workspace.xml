@@ -17,48 +17,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="7" selection-start-line="7" selection-end-line="7" />
+            <state>
+              <caret lean-forward="true" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/carrer/nonSubject/nonSubjectActivity.java">
+        <entry file="file://$PROJECT_DIR$/src/student/Student.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+            <state relative-caret-position="198">
+              <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/student/Student.java">
+        <entry file="file://$PROJECT_DIR$/src/carrer/nonSubject/nonSubjectActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="36">
-              <caret line="2" column="35" selection-start-line="2" selection-start-column="35" selection-end-line="2" selection-end-column="35" />
-              <folding>
-                <element signature="e#464#465#0" expanded="true" />
-                <element signature="e#492#493#0" expanded="true" />
-                <element signature="e#533#534#0" expanded="true" />
-                <element signature="e#567#568#0" expanded="true" />
-                <element signature="e#597#598#0" expanded="true" />
-                <element signature="e#624#625#0" expanded="true" />
-                <element signature="e#663#664#0" expanded="true" />
-                <element signature="e#695#696#0" expanded="true" />
-                <element signature="e#730#731#0" expanded="true" />
-                <element signature="e#765#766#0" expanded="true" />
-                <element signature="e#817#818#0" expanded="true" />
-                <element signature="e#865#866#0" expanded="true" />
-                <element signature="e#890#891#0" expanded="true" />
-                <element signature="e#915#916#0" expanded="true" />
-                <element signature="e#947#948#0" expanded="true" />
-                <element signature="e#975#976#0" expanded="true" />
-                <element signature="e#1011#1012#0" expanded="true" />
-                <element signature="e#1047#1048#0" expanded="true" />
-                <element signature="e#1101#1102#0" expanded="true" />
-                <element signature="e#1151#1152#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="18">
+              <caret line="1" column="17" lean-forward="true" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -85,17 +63,19 @@
       <list>
         <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/src/nonSubjectActivity.java" />
-        <option value="$PROJECT_DIR$/src/carrer/nonSubject/nonSubjectActivity.java" />
+        <option value="$PROJECT_DIR$/src/Data/User.java" />
         <option value="$PROJECT_DIR$/src/student/Student.java" />
+        <option value="$PROJECT_DIR$/src/carrer/nonSubject/nonSubjectActivity.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-9" />
     <option name="y" value="-9" />
     <option name="width" value="978" />
     <option name="height" value="1048" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -113,11 +93,6 @@
             <path>
               <item name="FirstJava" type="b2602c69:ProjectViewProjectNode" />
               <item name="FirstJava" type="462c0819:PsiDirectoryNode" />
-              <item name=".idea" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="FirstJava" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FirstJava" type="462c0819:PsiDirectoryNode" />
               <item name="out" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -132,6 +107,23 @@
               <item name="out" type="462c0819:PsiDirectoryNode" />
               <item name="production" type="462c0819:PsiDirectoryNode" />
               <item name="FirstJava" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FirstJava" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FirstJava" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FirstJava" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FirstJava" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="nonSubject" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FirstJava" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FirstJava" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="student" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -203,11 +195,43 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27847000" />
+    <option name="totallyTimeSpent" value="28796000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16845638" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.25637394" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.48866856" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Database Changes" order="9" />
+      <window_info anchor="bottom" id="Terminal" order="10" />
+      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" weight="0.0878187" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.32719547" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.03557047" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Theme Preview" order="4" />
+      <window_info anchor="right" id="Maven" order="5" />
+      <window_info anchor="right" id="Capture Analysis" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Database" order="8" />
+    </layout>
+    <layout-to-restore>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16845638" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
@@ -237,7 +261,7 @@
       <window_info anchor="right" id="Capture Analysis" order="6" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Database" order="8" />
-    </layout>
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -254,46 +278,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/carrer/nonSubject/nonSubjectActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="1" column="17" lean-forward="true" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Data/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="6" column="11" lean-forward="true" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
+        <state>
+          <caret lean-forward="true" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/student/Student.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="35" selection-start-line="2" selection-start-column="35" selection-end-line="2" selection-end-column="35" />
-          <folding>
-            <element signature="e#464#465#0" expanded="true" />
-            <element signature="e#492#493#0" expanded="true" />
-            <element signature="e#533#534#0" expanded="true" />
-            <element signature="e#567#568#0" expanded="true" />
-            <element signature="e#597#598#0" expanded="true" />
-            <element signature="e#624#625#0" expanded="true" />
-            <element signature="e#663#664#0" expanded="true" />
-            <element signature="e#695#696#0" expanded="true" />
-            <element signature="e#730#731#0" expanded="true" />
-            <element signature="e#765#766#0" expanded="true" />
-            <element signature="e#817#818#0" expanded="true" />
-            <element signature="e#865#866#0" expanded="true" />
-            <element signature="e#890#891#0" expanded="true" />
-            <element signature="e#915#916#0" expanded="true" />
-            <element signature="e#947#948#0" expanded="true" />
-            <element signature="e#975#976#0" expanded="true" />
-            <element signature="e#1011#1012#0" expanded="true" />
-            <element signature="e#1047#1048#0" expanded="true" />
-            <element signature="e#1101#1102#0" expanded="true" />
-            <element signature="e#1151#1152#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/carrer/nonSubject/nonSubjectActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+        <state relative-caret-position="198">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
         </state>
       </provider>
     </entry>

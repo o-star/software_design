@@ -7,13 +7,13 @@ class nonSubjectActivity{
 
     private boolean graduation_check=false;
 
-    public void input_nonSubjectActivity(){ };
+    public void input_nonSubjectActivity(){ }; // 액셀 파일에서 정보를 추가하는 메소드
 
-    public void scan_nonSubjectActivity(){ };
+    public void scan_nonSubjectActivity(){ }; // 액셀 파일에서 정보를 가져오는 메소드
 
-    public void change_nonSubjectActivity(){ };
+    public void change_nonSubjectActivity(){ }; // 액셀 파일에서 정보를 수정하는 메소드
 
-    public void check_career(){ };
+    public void check_career(){ }; // 경력 조건 인정
 }
 
 class counseling_history extends nonSubjectActivity{
@@ -24,6 +24,12 @@ class counseling_history extends nonSubjectActivity{
 
     @Override
     public void input_nonSubjectActivity(){
+
+    }
+
+    @Override
+    public void scan_nonSubjectActivity(){ // 액셀 파일에서 정보를 가져오는 메소드
+
     }
 }
 
