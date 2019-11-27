@@ -8,7 +8,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import java.io.FileInputStream;
 
 public class deep_computer extends graduation_requirement {     // 심화 컴퓨터 전공
-    private int practical_grade;            // 현장실습 이수학점
+    private double practical_grade;            // 현장실습 이수학점
     private String[] essential_major;       // 필수전공 과목
     private String[] essential_foundation;  // 필수전공기반 과목
     private double refinement_credit;          // 교양 이수학점
@@ -19,11 +19,23 @@ public class deep_computer extends graduation_requirement {     // 심화 컴퓨
     {
         track_name = "심화 컴퓨터";
     }
+    public void setEssential_foundation(){
+        /* 엑셀파일로부터 필수전공기반 과목 seting */
+        essential_foundation = ary_setter(0,10);
+    }
+    public void setEssential_major(){
+        /* 엑셀파일로부터 필수전공 과목 seting */
+        essential_major = ary_setter(0,11);
+    }
 
+    public void setPractical_grade(){
+        /* 엑셀파일로부터 현장실습학점 seting */
+        practical_grade = Double.parseDouble(setter(0, 1, 7));
+    }
     public void setCounseling(){
         /* 엑셀파일로부터 상담횟수 seting */
 
-        counseling = Double.parseDouble(setter(0, 1, 8));
+        counseling = Double.parseDouble(setter(0, 1, 13));
     }
 
     public void setComplete_credit_amount(){
@@ -56,6 +68,19 @@ public class deep_computer extends graduation_requirement {     // 심화 컴퓨
         major_credit = Double.parseDouble(super.setter(0, 1, 5));
     }
 
+
+    public String[] getEssential_foundation() {
+        setEssential_foundation();
+        return essential_foundation;
+    }
+    public String[] getEssential_major() {
+        setEssential_major();
+        return essential_major;
+    }
+    public double getPractical_grade() {
+        setPractical_grade();
+        return practical_grade;
+    }
     public double getCounseling() {
         setCounseling();
         return counseling;

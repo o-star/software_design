@@ -2,10 +2,22 @@ package graduation_requirement;
 
 public class globalsoft_multi_track extends global_software {
 
+    public void setStartup_credit(){
+        /* 엑셀파일로부터 창업교과목 학점 setting */
+        startup_credit = Double.parseDouble(setter(1, 1, 8));
+    }
+    public void setEssential_major(){
+        /* 엑셀파일로부터 필수전공 과목 setting */
+        essential_major = ary_setter(1,11);
+    }
+    public void setPractical_grade(){
+        /* 엑셀파일로부터 현장실습학점 setting */
+        practical_grade = Double.parseDouble(setter(1, 1, 7));
+    }
     public void setCounseling(){
-        /* 엑셀파일로부터 상담횟수 seting */
+        /* 엑셀파일로부터 상담횟수 setting */
 
-        counseling = Double.parseDouble(setter(1, 1, 14));
+        counseling = Double.parseDouble(setter(1, 1, 13));
     }
     public void setEnglish_grade(){
         /* 엑셀파일로부터 다중전공 공인영어성적 setting */
@@ -30,6 +42,19 @@ public class globalsoft_multi_track extends global_software {
         refinement_credit = Double.parseDouble(setter(1, 1, 2));
     }
 
+
+    public double getStartup_credit() {
+        setStartup_credit();
+        return startup_credit;
+    }
+    public String[] getEssential_major() {
+        setEssential_major();
+        return essential_major;
+    }
+    public double getPractical_grade() {
+        setPractical_grade();
+        return practical_grade;
+    }
     public double getCounseling() {
         setCounseling();
         return counseling;
