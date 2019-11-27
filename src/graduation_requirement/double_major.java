@@ -17,21 +17,9 @@ public class double_major extends graduation_requirement {
     }
 
     public void setDouble_credit(){
-        /* 엑셀파일에서 복수전공 이수학점 setting */
+        /* 엑셀파일로부터 복수전공 이수학점 setting */
 
-        try {
-            FileInputStream file = new FileInputStream("C:\\Users\\user\\Desktop\\소설 구현\\졸업요건.xlsx");
-            XSSFWorkbook workbook = new XSSFWorkbook(file);
-
-            XSSFSheet sheet=workbook.getSheetAt(5);     // sheet index
-            XSSFRow row=sheet.getRow(1);             // row index
-            XSSFCell cell=row.getCell(0);            // cell index
-
-            double_credit = Double.parseDouble(cell.getNumericCellValue()+"");
-            file.close();
-        }catch(Exception e) {
-            e.printStackTrace();
-        }
+        double_credit = Double.parseDouble(super.setter(5, 1, 0));
     }
 
 

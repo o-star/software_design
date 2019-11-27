@@ -18,21 +18,9 @@ public class minor_track extends graduation_requirement {
         super.track_name = "부전공 트랙";
     }
     public void setCredit(){
-        /* 엑셀파일에서 부전공 이수학점 setting */
+        /* 엑셀파일로부터 부전공 이수학점 setting */
 
-        try {
-            FileInputStream file = new FileInputStream("C:\\Users\\user\\Desktop\\소설 구현\\졸업요건.xlsx");
-            XSSFWorkbook workbook = new XSSFWorkbook(file);
-
-            XSSFSheet sheet=workbook.getSheetAt(6);     // sheet index
-            XSSFRow row=sheet.getRow(1);              // row index
-            XSSFCell cell=row.getCell(0);             // cell index
-
-            credit = Double.parseDouble(cell.getNumericCellValue()+"");
-            file.close();
-        }catch(Exception e) {
-            e.printStackTrace();
-        }
+        credit = Double.parseDouble(super.setter(6, 1, 0));
     }
 
 
