@@ -20,7 +20,7 @@ public class minor_track extends graduation_requirement {
     public void setCredit(){
         /* 엑셀파일로부터 부전공 이수학점 setting */
 
-        credit = Double.parseDouble(super.setter(6, 1, 0));
+        credit = Double.parseDouble(setter(6, 1, 1));
     }
 
 

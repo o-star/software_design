@@ -14,6 +14,6 @@ public class foreigner_track extends graduation_requirement {
 
     public foreigner_track()
     {
-        super.track_name = "외국인 복수 전공 트랙";
+        track_name = "외국인 복수 전공 트랙";
     }
 }

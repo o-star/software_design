@@ -13,11 +13,11 @@ public class global_software extends graduation_requirement {       // 글로벌
     protected boolean multi_major;            // 다중전공여부
     protected double career_counseling = 4;      // 진로설계상담횟수
     protected String[] essential_major;       // 필수전공 수강과목
-    protected double major_credit;               // 전공 이수 학점
+    protected double majorbase_credit;           // 전공기반 이수학점
     protected double refinement_credit;          // 교퍙 이수 학점
 
     public global_software()
     {
-        super.track_name = "글로벌 소프트웨어";
+        track_name = "글로벌 소프트웨어";
     }
 }

@@ -17,39 +17,49 @@ public class deep_computer extends graduation_requirement {     // 심화 컴퓨
 
     public deep_computer()
     {
-        super.track_name = "심화 컴퓨터";
+        track_name = "심화 컴퓨터";
+    }
+
+    public void setCounseling(){
+        /* 엑셀파일로부터 상담횟수 seting */
+
+        counseling = Double.parseDouble(setter(0, 1, 8));
     }
 
     public void setComplete_credit_amount(){
         /* 엑셀파일로부터 심화컴퓨터전공 총 이수학점 setting */
 
-            super.complete_credit_amount = Double.parseDouble(super.setter(0, 1, 0));
+            complete_credit_amount = Double.parseDouble(super.setter(0, 1, 1));
     }
 
     public void setEnglish_grade(){
         /* 엑셀파일로부터 심화컴퓨터전공 공인영어성적 setting */
 
-        super.english_grade = Double.parseDouble(super.setter(0, 1, 6));
+        english_grade = Double.parseDouble(super.setter(0, 1, 12));
     }
 
     public void setRefinement_credit() {
         /* 엑셀파일로부터 심화컴퓨터전공 교양 이수학점 setting */
 
-        refinement_credit = Double.parseDouble(super.setter(0, 1, 1));
+        refinement_credit = Double.parseDouble(super.setter(0, 1, 3));
     }
 
     public void setMajorbase_credit() {
         /* 엑셀파일로부터 심화컴퓨터전공 전공기반 이수학점 setting */
 
-        majorbase_credit = Double.parseDouble(super.setter(0, 1, 2));
+        majorbase_credit = Double.parseDouble(super.setter(0, 1, 4));
     }
 
     public void setMajor_credit() {
         /* 엑셀파일로부터 심화컴퓨터전공 공학전공 이수학점 setting */
 
-        major_credit = Double.parseDouble(super.setter(0, 1, 3));
+        major_credit = Double.parseDouble(super.setter(0, 1, 5));
     }
 
+    public double getCounseling() {
+        setCounseling();
+        return counseling;
+    }
     public double getComplete_credit_amount() {
         setComplete_credit_amount();
         return super.complete_credit_amount;
