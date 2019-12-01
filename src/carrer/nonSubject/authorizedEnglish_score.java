@@ -5,6 +5,9 @@ import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
+import Data.Data_nonSubject;
+import sun.security.jca.GetInstance;
+
 import java.io.*;
 
 public class authorizedEnglish_score extends nonSubjectActivity{
@@ -16,18 +19,21 @@ public class authorizedEnglish_score extends nonSubjectActivity{
     private int examScore;
     private int certificationDate;
 
-    //private String major_track;
 
     @Override
     public void scan_nonSubjectActivity(){ // 액셀 파일에서 정보를 가져오는 메소드
+
+        Data_nonSubject data= Data_nonSubject.getInstance();
 
     }
 
     @Override
     public void change_nonSubjectActivity(int count){ // 액셀 파일에서 정보를 수정하는 메소드
+
+        Data_nonSubject data = Data_nonSubject.getInstance();
         int changed_score = count;
         try {
-            FileInputStream stu_file = new FileInputStream("C:\\Users\\HyunSU\\Desktop\\개발\\학생경력정보.xlsx");
+            FileInputStream stu_file = new FileInputStream("학생경력정보.xlsx");
             XSSFWorkbook workbook = new XSSFWorkbook(stu_file);
             XSSFSheet sheet_workbook = workbook.getSheetAt(0);     // sheet index
 
@@ -45,7 +51,7 @@ public class authorizedEnglish_score extends nonSubjectActivity{
                     examScore = changed_score;
 
                     try {
-                        FileOutputStream fileoutputstream = new FileOutputStream("C:\\Users\\user\\Desktop\\개발\\졸업요건.xlsx");
+                        FileOutputStream fileoutputstream = new FileOutputStream("학생경력정보.xlsx");
                         workbook.write(fileoutputstream);
                         fileoutputstream.close();
                         System.out.println("엑셀파일생성성공");
@@ -57,7 +63,7 @@ public class authorizedEnglish_score extends nonSubjectActivity{
                 }
                 i++; // #### 마찬가지로 수정해야함
             }
-
+            data.read_alldata();
             stu_file.close();
         } catch (Exception e) {
             e.printStackTrace();
