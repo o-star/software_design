@@ -1,0 +1,18 @@
+<component name="libraryTable">
+  <library name="commons-collections4-4.1">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/Documents/카카오톡 받은 파일/poi lib/commons-collections4-4.1.jar!/" />
+      <root url="jar://$USER_HOME$/Documents/카카오톡 받은 파일/poi lib/commons-compress-1.19.jar!/" />
+      <root url="jar://$USER_HOME$/Documents/카카오톡 받은 파일/poi lib/curvesapi-1.06.jar!/" />
+      <root url="jar://$USER_HOME$/Documents/카카오톡 받은 파일/poi lib/poi-4.1.1.jar!/" />
+      <root url="jar://$USER_HOME$/Documents/카카오톡 받은 파일/poi lib/poi-examples-4.1.1.jar!/" />
+      <root url="jar://$USER_HOME$/Documents/카카오톡 받은 파일/poi lib/poi-excelant-4.1.1.jar!/" />
+      <root url="jar://$USER_HOME$/Documents/카카오톡 받은 파일/poi lib/poi-ooxml-4.1.1.jar!/" />
+      <root url="jar://$USER_HOME$/Documents/카카오톡 받은 파일/poi lib/poi-ooxml-schemas-4.1.1.jar!/" />
+      <root url="jar://$USER_HOME$/Documents/카카오톡 받은 파일/poi lib/poi-scratchpad-4.1.1.jar!/" />
+      <root url="jar://$USER_HOME$/Documents/카카오톡 받은 파일/poi lib/xmlbeans-3.1.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
