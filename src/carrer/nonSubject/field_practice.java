@@ -9,7 +9,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-class field_practice extends nonSubjectActivity{
+public class field_practice extends nonSubjectActivity{
 
     private boolean field_practice_check = false;
     private int field_credit; // #### class diagram 에 추가되어야 하는 attribute , (1,11) cell 에 있음
@@ -24,7 +24,7 @@ class field_practice extends nonSubjectActivity{
 
         /* 엑셀파일에서 현장실습경력 setting */
         try {
-            FileInputStream stu_file = new FileInputStream("학생경력정보.xlsx");
+            FileInputStream stu_file = new FileInputStream("C:\\Users\\HyunSU\\Desktop\\개발\\학생경력정보.xlsx");
             XSSFWorkbook workbook = new XSSFWorkbook(stu_file);
             XSSFSheet sheet_workbook = workbook.getSheetAt(0);     // sheet index
 
@@ -39,7 +39,7 @@ class field_practice extends nonSubjectActivity{
                     XSSFRow row_student = sheet_student.getRow(1);             // row index
                     XSSFCell cell_student = row_student.getCell(11);            // cell index
 
-                    this.field_credit = Integer.parseInt(cell_workbook.getNumericCellValue() + "");
+                    this.field_credit = Integer.parseInt(cell_workbook.getStringCellValue() + "");
                     condition = false;
                 }
                 i++;
@@ -57,10 +57,9 @@ class field_practice extends nonSubjectActivity{
 
         int changed_field_credit = field_credit + count;
         try {
-            FileInputStream stu_file = new FileInputStream("학생경력정보.xlsx");
+            FileInputStream stu_file = new FileInputStream("C:\\Users\\HyunSU\\Desktop\\개발\\학생경력정보.xlsx");
             XSSFWorkbook workbook = new XSSFWorkbook(stu_file);
             XSSFSheet sheet_workbook = workbook.getSheetAt(0);     // sheet index
-
 
             boolean condition = true;
             int i = 1;
@@ -75,7 +74,7 @@ class field_practice extends nonSubjectActivity{
                     cell_student.setCellValue(Integer.toString(changed_field_credit)); // 수정된 상담횟수를 문자열로 다시 입력
                     field_credit = changed_field_credit;
                     try {
-                        FileOutputStream fileoutputstream = new FileOutputStream("학생경력정보.xlsx");
+                        FileOutputStream fileoutputstream = new FileOutputStream("C:\\Users\\user\\Desktop\\개발\\졸업요건.xlsx");
                         workbook.write(fileoutputstream);
                         fileoutputstream.close();
                         System.out.println("엑셀파일생성성공");
@@ -107,4 +106,3 @@ class field_practice extends nonSubjectActivity{
         }
     }
 }
-

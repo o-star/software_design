@@ -41,7 +41,7 @@ public class counseling_history extends nonSubjectActivity{
             XSSFWorkbook workbook = new XSSFWorkbook(stu_file);
             XSSFSheet sheet_workbook = workbook.getSheetAt(0);     // sheet index
 
-            FileInputStream graduation_file = new FileInputStream("C:\\Users\\HyunSU\\Desktop\\개발\\졸업요건.xlsx");
+            FileInputStream graduation_file = new FileInputStream("졸업요건.xlsx");
             XSSFWorkbook graduation_workbook = new XSSFWorkbook(graduation_file);
 
             boolean condition = true;
@@ -54,18 +54,6 @@ public class counseling_history extends nonSubjectActivity{
                     XSSFSheet sheet_student = workbook.getSheetAt(i);     // sheet index
                     XSSFRow row_student = sheet_student.getRow(1);             // row index
                     XSSFCell cell_student = row_student.getCell(12);
-
-                    for(i=0; i<9; i++)
-                    {
-                        XSSFSheet sheet_graduation = graduation_workbook.getSheetAt(i);
-                        XSSFRow row_graduation = sheet_graduation.getRow(1);
-                        XSSFCell cell_graduation = row_graduation.getCell(0);            // cell index
-                        if((cell_graduation.getStringCellValue()+"").equals(user.getTrack()) == true)
-                        {
-                            XSSFCell cell_counseling = row_graduation.getCell(13);
-                            essential_count = Integer.parseInt(cell_counseling.getStringCellValue()+"");
-                        }
-                    }
                     this.counseling_number = Integer.parseInt(cell_student.getStringCellValue() + "");
                     condition = false;
                 }
