@@ -1,6 +1,5 @@
 package carrer.nonSubject;
 
-import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -34,44 +33,12 @@ public class counseling_history extends nonSubjectActivity{
 
     @Override
     public void scan_nonSubjectActivity() { // 액셀 파일에서 정보를 가져오는 메소드
-        /* 엑셀파일에서 상담이력 setting */
-        int x, y; // row, col
-        try {
-            FileInputStream stu_file = new FileInputStream("학생경력정보.xlsx");
-            XSSFWorkbook workbook = new XSSFWorkbook(stu_file);
-            XSSFSheet sheet_workbook = workbook.getSheetAt(0);     // sheet index
-
-            FileInputStream graduation_file = new FileInputStream("졸업요건.xlsx");
-            XSSFWorkbook graduation_workbook = new XSSFWorkbook(graduation_file);
-
-            boolean condition = true;
-            int i = 1;
-
-            while (condition) {
-                XSSFRow row_workbook = sheet_workbook.getRow(i);             // row index
-                XSSFCell cell_workbook = row_workbook.getCell(1);            // cell index
-                if ((cell_workbook.getStringCellValue() + "").equals(user.getStudent_code()) == true) {
-                    XSSFSheet sheet_student = workbook.getSheetAt(i);     // sheet index
-                    XSSFRow row_student = sheet_student.getRow(1);             // row index
-                    XSSFCell cell_student = row_student.getCell(12);
-                    this.counseling_number = Integer.parseInt(cell_student.getStringCellValue() + "");
-                    condition = false;
-                }
-                i++;
-            }
-
-            stu_file.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 
     @Override
     // #### 상담횟수가 0일때는 초기값 설정해줘야함
     public void change_nonSubjectActivity(int count){ // 액셀 파일에서 정보를 수정하는 메소드
         int changed_counseling = this.counseling_number + count;
-        int sheet_no; // sheet number
-        Cell cell;
 
         try {
             FileInputStream stu_file = new FileInputStream("학생경력정보.xlsx");
@@ -103,7 +70,7 @@ public class counseling_history extends nonSubjectActivity{
                     }
                     condition = false;
                 }
-                i++; // #### 마찬가지로 수정해야함
+                i++;
             }
 
             stu_file.close();
@@ -113,9 +80,11 @@ public class counseling_history extends nonSubjectActivity{
     }
 
     @Override
-    public void check_career() { // 경력 조건 인정
+    public boolean check_career() { // 경력 조건 인정
         if(essential_count <= counseling_number){
             counseling_check = true;
         }
+
+        return this.counseling_check;
     }
 }

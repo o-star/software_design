@@ -71,10 +71,12 @@ public class authorizedEnglish_score extends nonSubjectActivity{
     }
 
     @Override
-    public void check_career(){ // 경력 조건 인정
+    public boolean check_career(){ // 경력 조건 인정
         if(essential_score <= examScore) // essential_score 는 인트형으로 바뀔예정
         {
             authorizedEnglish_check = true;
         }
+
+        return authorizedEnglish_check;
     }
 }

@@ -1,5 +1,6 @@
 package carrer.nonSubject;
 
+import Data.Data_nonSubject;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -22,33 +23,6 @@ public class field_practice extends nonSubjectActivity{
     @Override
     public void scan_nonSubjectActivity(){ // 액셀 파일에서 정보를 가져오는 메소드
 
-        /* 엑셀파일에서 현장실습경력 setting */
-        try {
-            FileInputStream stu_file = new FileInputStream("C:\\Users\\HyunSU\\Desktop\\개발\\학생경력정보.xlsx");
-            XSSFWorkbook workbook = new XSSFWorkbook(stu_file);
-            XSSFSheet sheet_workbook = workbook.getSheetAt(0);     // sheet index
-
-            boolean condition = true;
-            int i = 1;
-
-            while (condition) {
-                XSSFRow row_workbook = sheet_workbook.getRow(i);             // row index
-                XSSFCell cell_workbook = row_workbook.getCell(1);            // cell index
-                if ((cell_workbook.getStringCellValue() + "").equals(user.getStudent_code()) == true) {
-                    XSSFSheet sheet_student = workbook.getSheetAt(i);     // sheet index
-                    XSSFRow row_student = sheet_student.getRow(1);             // row index
-                    XSSFCell cell_student = row_student.getCell(11);            // cell index
-
-                    this.field_credit = Integer.parseInt(cell_workbook.getStringCellValue() + "");
-                    condition = false;
-                }
-                i++;
-            }
-
-            stu_file.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 
 
@@ -57,7 +31,7 @@ public class field_practice extends nonSubjectActivity{
 
         int changed_field_credit = field_credit + count;
         try {
-            FileInputStream stu_file = new FileInputStream("C:\\Users\\HyunSU\\Desktop\\개발\\학생경력정보.xlsx");
+            FileInputStream stu_file = new FileInputStream("학생경력정보.xlsx");
             XSSFWorkbook workbook = new XSSFWorkbook(stu_file);
             XSSFSheet sheet_workbook = workbook.getSheetAt(0);     // sheet index
 
@@ -74,7 +48,7 @@ public class field_practice extends nonSubjectActivity{
                     cell_student.setCellValue(Integer.toString(changed_field_credit)); // 수정된 상담횟수를 문자열로 다시 입력
                     field_credit = changed_field_credit;
                     try {
-                        FileOutputStream fileoutputstream = new FileOutputStream("C:\\Users\\user\\Desktop\\개발\\졸업요건.xlsx");
+                        FileOutputStream fileoutputstream = new FileOutputStream("졸업요건.xlsx");
                         workbook.write(fileoutputstream);
                         fileoutputstream.close();
                         System.out.println("엑셀파일생성성공");
@@ -94,7 +68,7 @@ public class field_practice extends nonSubjectActivity{
     }
 
     @Override
-    public void check_career(){ // 경력 조건 인정
+    public boolean check_career(){ // 경력 조건 인정
         if(this.field_credit >= this.essential_field_credit)
         {
             this.field_practice_check = true;
@@ -104,5 +78,7 @@ public class field_practice extends nonSubjectActivity{
             this.field_practice_check = false;
             System.out.println("현장실습경력FAILED");
         }
+
+        return this.field_practice_check;
     }
 }
