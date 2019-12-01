@@ -2,9 +2,11 @@ import student.Student;
 import carrer.nonSubject.*;
 import Data.*;
 
+import java.io.IOException;
+
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
         Student user = Student.getInstance();
         counseling_history h = new counseling_history();
@@ -14,10 +16,16 @@ public class Main {
 
         nonSubjectActivity n = new nonSubjectActivity();
         System.out.println(n.check_all_nonSubject());
+
         Data_nonSubject d = Data_nonSubject.getInstance();
         System.out.println(d.getCounseling_number());
         System.out.println(d.getExamScore());
         System.out.println(d.getField_credit());
+
+        graduation_requirement a = graduation_requirement.getInstance();
+        System.out.println(a.getEnglish_grade());
+        System.out.println(a.getBasic_credit());
+
 
 
 

@@ -47,7 +47,7 @@ public class graduation_requirement {
         String s;
 
         try {
-            FileInputStream file = new FileInputStream("C:\\Users\\user\\Desktop\\소설 구현\\졸업요건.xlsx");
+            FileInputStream file = new FileInputStream("졸업요건.xlsx");
             XSSFWorkbook workbook = new XSSFWorkbook(file);
 
             XSSFSheet sheet = workbook.getSheetAt(0);

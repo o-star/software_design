@@ -43,7 +43,7 @@ public class data_curriculum {
     data_curriculum() throws IOException { setter(); }
 
     void setter() throws IOException {
-        FileInputStream file = new FileInputStream("C:\\Users\\user\\Desktop\\소설 구현\\학생경력정보.xlsx");
+        FileInputStream file = new FileInputStream("학생경력정보.xlsx");
         XSSFWorkbook workbook = new XSSFWorkbook(file);
         XSSFSheet work_sheet=workbook.getSheetAt(0);
         int work_value=0;
@@ -93,9 +93,10 @@ public class data_curriculum {
             global_capability  = Double.parseDouble(cell.getStringCellValue()+"");   // 글로벌 역량 학점
         cell = row.getCell(7);
         s = String.valueOf(cell);
-        if(!s.equals(""))
-            startup_capability  = Double.parseDouble(cell.getStringCellValue()+"");  // 창업 역량 학점
-
+        if(cell!=null) {
+            System.out.println(cell.getClass().getName());
+            startup_capability = Double.parseDouble(cell.getStringCellValue() + "");  // 창업 역량 학점
+        }
 
         subject_name = ary_setter(workbook, work_value, 11);      //과목명
         credit = ary_setter(workbook, work_value, 12);     //학점
@@ -116,7 +117,7 @@ public class data_curriculum {
             for(i=1; i<rows; i++){
                 XSSFRow row=sheet.getRow(i);              // row index
                 XSSFCell cell = row.getCell(columnnum);             // cell index
-                if(cell.getStringCellValue() == "")
+                if(cell.getStringCellValue().equals(""))
                     break;
                 value[i-1] = cell.getStringCellValue()+"";
             }
