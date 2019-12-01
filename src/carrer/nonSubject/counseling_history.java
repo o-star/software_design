@@ -11,33 +11,18 @@ import java.io.IOException;
 
 public class counseling_history extends nonSubjectActivity{
 
-    private static counseling_history history;
     private int counseling_number; // 상담횟수
 
     private boolean counseling_check = false; // 졸업요건 상담횟수 충족 확인
 
-    public static counseling_history getHistory() {
-        return history;
-    }
+    // private int counseling_data; // 상담일시
+    // private String counseling_name; // 상담교수
+    //nonSubjectActivity n = new nonSubjectActivity();
+    //nonSubjectActivity();
 
-    public void setHistory(counseling_history history) {
-        this.history = history;
-    }
-
-    public int getCounseling_number() {
-        return counseling_number;
-    }
-
-    public void setCounseling_number(int counseling_number) {
-        this.counseling_number = counseling_number;
-    }
-
-    public boolean isCounseling_check() {
-        return counseling_check;
-    }
-
-    public void setCounseling_check(boolean counseling_check) {
-        this.counseling_check = counseling_check;
+    public void counseling_history()
+    {
+        scan_nonSubjectActivity();
     }
 
     @Override
@@ -45,7 +30,7 @@ public class counseling_history extends nonSubjectActivity{
         /* 엑셀파일에서 상담이력 setting */
         int x, y; // row, col
         try {
-            FileInputStream stu_file = new FileInputStream("학생경력정보.xlsx");
+            FileInputStream stu_file = new FileInputStream("C:\\Users\\HyunSU\\Desktop\\개발\\학생경력정보.xlsx");
             XSSFWorkbook workbook = new XSSFWorkbook(stu_file);
             XSSFSheet sheet_workbook = workbook.getSheetAt(0);     // sheet index
 
@@ -79,7 +64,7 @@ public class counseling_history extends nonSubjectActivity{
         int sheet_no; // sheet number
 
         try {
-            FileInputStream stu_file = new FileInputStream("학생경력정보.xlsx");
+            FileInputStream stu_file = new FileInputStream("C:\\Users\\HyunSU\\Desktop\\개발\\학생경력정보.xlsx");
             XSSFWorkbook workbook = new XSSFWorkbook(stu_file);
             XSSFSheet sheet_workbook = workbook.getSheetAt(0);     // sheet index
 
@@ -97,7 +82,7 @@ public class counseling_history extends nonSubjectActivity{
                     cell_student.setCellValue(Integer.toString(changed_counseling)); // 수정된 상담횟수를 문자열로 다시 입력
 
                     try {
-                        FileOutputStream fileoutputstream = new FileOutputStream("졸업요건.xlsx");
+                        FileOutputStream fileoutputstream = new FileOutputStream("C:\\Users\\user\\Desktop\\개발\\졸업요건.xlsx");
                         workbook.write(fileoutputstream);
                         fileoutputstream.close();
                         System.out.println("엑셀파일생성성공");
@@ -122,11 +107,11 @@ public class counseling_history extends nonSubjectActivity{
         int essential_number; // 졸업 요건 상담 횟수
 
         try {
-            FileInputStream stu_file = new FileInputStream("학생경력정보.xlsx");
+            FileInputStream stu_file = new FileInputStream("C:\\Users\\HyunSU\\Desktop\\개발\\학생경력정보.xlsx");
             XSSFWorkbook workbook = new XSSFWorkbook(stu_file);
             XSSFSheet sheet_workbook = workbook.getSheetAt(0);     // sheet index
 
-            FileInputStream graduation_file = new FileInputStream("졸업요건.xlsx");
+            FileInputStream graduation_file = new FileInputStream("C:\\Users\\HyunSU\\Desktop\\개발\\졸업요건.xlsx");
             XSSFWorkbook graduation_workbook = new XSSFWorkbook(graduation_file);
 
 
