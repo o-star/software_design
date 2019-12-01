@@ -1,6 +1,6 @@
 import student.Student;
 import carrer.nonSubject.*;
-
+import Data.*;
 
 public class Main {
 
@@ -10,6 +10,12 @@ public class Main {
         counseling_history h = new counseling_history();
         h.scan_nonSubjectActivity();
         System.out.println(h.getCounseling_number());
+        h.change_nonSubjectActivity(6);
+
+        Data_nonSubject d = Data_nonSubject.getInstance();
+        System.out.println(d.getCounseling_number());
+        System.out.println(d.getExamScore());
+        System.out.println(d.getField_credit());
 
     }
 

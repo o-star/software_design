@@ -1,6 +1,5 @@
 package carrer.nonSubject;
 
-import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -10,39 +9,24 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-public class counseling_history extends nonSubjectActivity{
+class field_practice extends nonSubjectActivity{
 
-    private int counseling_number; // 상담횟수
-    private int essential_count;
-    private boolean counseling_check = false; // 졸업요건 상담횟수 충족 확인
+    private boolean field_practice_check = false;
+    private int field_credit; // #### class diagram 에 추가되어야 하는 attribute , (1,11) cell 에 있음
+    private int essential_field_credit = 3; // 3학점 이상 채우면 pass!
 
-    public int getCounseling_number() {
-        return counseling_number;
-    }
-
-    public void setCounseling_number(int counseling_number) {
-        this.counseling_number = counseling_number;
-    }
-
-    public boolean isCounseling_check() {
-        return counseling_check;
-    }
-
-    public void setCounseling_check(boolean counseling_check) {
-        this.counseling_check = counseling_check;
+    public int get_credit(){
+        return field_credit;
     }
 
     @Override
-    public void scan_nonSubjectActivity() { // 액셀 파일에서 정보를 가져오는 메소드
-        /* 엑셀파일에서 상담이력 setting */
-        int x, y; // row, col
+    public void scan_nonSubjectActivity(){ // 액셀 파일에서 정보를 가져오는 메소드
+
+        /* 엑셀파일에서 현장실습경력 setting */
         try {
             FileInputStream stu_file = new FileInputStream("학생경력정보.xlsx");
             XSSFWorkbook workbook = new XSSFWorkbook(stu_file);
             XSSFSheet sheet_workbook = workbook.getSheetAt(0);     // sheet index
-
-            FileInputStream graduation_file = new FileInputStream("C:\\Users\\HyunSU\\Desktop\\개발\\졸업요건.xlsx");
-            XSSFWorkbook graduation_workbook = new XSSFWorkbook(graduation_file);
 
             boolean condition = true;
             int i = 1;
@@ -53,20 +37,9 @@ public class counseling_history extends nonSubjectActivity{
                 if ((cell_workbook.getStringCellValue() + "").equals(user.getStudent_code()) == true) {
                     XSSFSheet sheet_student = workbook.getSheetAt(i);     // sheet index
                     XSSFRow row_student = sheet_student.getRow(1);             // row index
-                    XSSFCell cell_student = row_student.getCell(12);
+                    XSSFCell cell_student = row_student.getCell(11);            // cell index
 
-                    for(i=0; i<9; i++)
-                    {
-                        XSSFSheet sheet_graduation = graduation_workbook.getSheetAt(i);
-                        XSSFRow row_graduation = sheet_graduation.getRow(1);
-                        XSSFCell cell_graduation = row_graduation.getCell(0);            // cell index
-                        if((cell_graduation.getStringCellValue()+"").equals(user.getTrack()) == true)
-                        {
-                            XSSFCell cell_counseling = row_graduation.getCell(13);
-                            essential_count = Integer.parseInt(cell_counseling.getStringCellValue()+"");
-                        }
-                    }
-                    this.counseling_number = Integer.parseInt(cell_student.getStringCellValue() + "");
+                    this.field_credit = Integer.parseInt(cell_workbook.getNumericCellValue() + "");
                     condition = false;
                 }
                 i++;
@@ -78,13 +51,11 @@ public class counseling_history extends nonSubjectActivity{
         }
     }
 
-    @Override
-    // #### 상담횟수가 0일때는 초기값 설정해줘야함
-    public void change_nonSubjectActivity(int count){ // 액셀 파일에서 정보를 수정하는 메소드
-        int changed_counseling = this.counseling_number + count;
-        int sheet_no; // sheet number
-        Cell cell;
 
+    @Override
+    public void change_nonSubjectActivity(int count){ // 액셀 파일에서 정보를 수정하는 메소드
+
+        int changed_field_credit = field_credit + count;
         try {
             FileInputStream stu_file = new FileInputStream("학생경력정보.xlsx");
             XSSFWorkbook workbook = new XSSFWorkbook(stu_file);
@@ -100,10 +71,9 @@ public class counseling_history extends nonSubjectActivity{
                 if ((cell_workbook.getStringCellValue() + "").equals(user.getStudent_code()) == true) {
                     XSSFSheet sheet_student = workbook.getSheetAt(i);     // sheet index
                     XSSFRow row_student = sheet_student.getRow(1);             // row index
-                    XSSFCell cell_student = row_student.getCell(12);            // cell index
-                    cell_student.setCellValue(Integer.toString(changed_counseling)); // 수정된 상담횟수를 문자열로 다시 입력
-                    System.out.println(changed_counseling);
-
+                    XSSFCell cell_student = row_student.getCell(11);            // cell index
+                    cell_student.setCellValue(Integer.toString(changed_field_credit)); // 수정된 상담횟수를 문자열로 다시 입력
+                    field_credit = changed_field_credit;
                     try {
                         FileOutputStream fileoutputstream = new FileOutputStream("학생경력정보.xlsx");
                         workbook.write(fileoutputstream);
@@ -125,9 +95,16 @@ public class counseling_history extends nonSubjectActivity{
     }
 
     @Override
-    public void check_career() { // 경력 조건 인정
-        if(essential_count <= counseling_number){
-            counseling_check = true;
+    public void check_career(){ // 경력 조건 인정
+        if(this.field_credit >= this.essential_field_credit)
+        {
+            this.field_practice_check = true;
+            System.out.println("현장실습경력PASS");
+        }
+        else {
+            this.field_practice_check = false;
+            System.out.println("현장실습경력FAILED");
         }
     }
 }
+
