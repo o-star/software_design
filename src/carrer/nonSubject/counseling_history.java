@@ -12,7 +12,7 @@ import java.io.IOException;
 public class counseling_history extends nonSubjectActivity{
 
     private int counseling_number; // 상담횟수
-
+    private int essential_count;
     private boolean counseling_check = false; // 졸업요건 상담횟수 충족 확인
 
     // private int counseling_data; // 상담일시
@@ -34,6 +34,9 @@ public class counseling_history extends nonSubjectActivity{
             XSSFWorkbook workbook = new XSSFWorkbook(stu_file);
             XSSFSheet sheet_workbook = workbook.getSheetAt(0);     // sheet index
 
+            FileInputStream graduation_file = new FileInputStream("C:\\Users\\HyunSU\\Desktop\\개발\\졸업요건.xlsx");
+            XSSFWorkbook graduation_workbook = new XSSFWorkbook(graduation_file);
+
             boolean condition = true;
             int i = 1;
 
@@ -43,9 +46,20 @@ public class counseling_history extends nonSubjectActivity{
                 if ((cell_workbook.getStringCellValue() + "").equals(user.getStudent_code()) == true) {
                     XSSFSheet sheet_student = workbook.getSheetAt(i);     // sheet index
                     XSSFRow row_student = sheet_student.getRow(1);             // row index
-                    XSSFCell cell_student = row_student.getCell(12);            // cell index
+                    XSSFCell cell_student = row_student.getCell(12);
 
-                    this.counseling_number = Integer.parseInt(cell_student.getNumericCellValue() + "");
+                    for(i=0; i<9; i++)
+                    {
+                        XSSFSheet sheet_graduation = graduation_workbook.getSheetAt(i);
+                        XSSFRow row_graduation = sheet_graduation.getRow(1);
+                        XSSFCell cell_graduation = row_graduation.getCell(0);            // cell index
+                        if((cell_graduation.getStringCellValue()+"").equals(user.getTrack()) == true)
+                        {
+                            XSSFCell cell_counseling = row_graduation.getCell(13);
+                            essential_count = Integer.parseInt(cell_counseling.getStringCellValue()+"");
+                        }
+                    }
+                    this.counseling_number = Integer.parseInt(cell_student.getStringCellValue() + "");
                     condition = false;
                 }
                 i++;
@@ -102,42 +116,9 @@ public class counseling_history extends nonSubjectActivity{
     }
 
     @Override
-    public void check_career(){ // 경력 조건 인정
-        int sheet_no; // sheet number
-        int essential_number; // 졸업 요건 상담 횟수
-
-        try {
-            FileInputStream stu_file = new FileInputStream("C:\\Users\\HyunSU\\Desktop\\개발\\학생경력정보.xlsx");
-            XSSFWorkbook workbook = new XSSFWorkbook(stu_file);
-            XSSFSheet sheet_workbook = workbook.getSheetAt(0);     // sheet index
-
-            FileInputStream graduation_file = new FileInputStream("C:\\Users\\HyunSU\\Desktop\\개발\\졸업요건.xlsx");
-            XSSFWorkbook graduation_workbook = new XSSFWorkbook(graduation_file);
-
-
-            boolean condition = true;
-            int i = 1;
-
-            while (condition) { // iterator로 수정할 필요..
-                XSSFRow row_workbook = sheet_workbook.getRow(i);             // row index
-                XSSFCell cell_workbook = row_workbook.getCell(12);            // cell index
-                if ((cell_workbook.getStringCellValue() + "").equals(user.getStudent_code()) == true) {
-                    XSSFSheet sheet_graduation = graduation_workbook.getSheetAt(i);     // sheet index
-                    XSSFRow row_graduation = sheet_graduation.getRow(1);             // row index
-                    XSSFCell cell_graduation = row_graduation.getCell(9);            // cell index
-
-                    essential_number = Integer.parseInt(cell_workbook.getNumericCellValue()+"");
-                    if(essential_number <= counseling_number)
-                        this.counseling_check = true;
-
-                    condition = false;
-                }
-                i++; // 마찬가지로 수정해야함
-            }
-
-            stu_file.close();
-        } catch (Exception e) {
-            e.printStackTrace();
+    public void check_career() { // 경력 조건 인정
+        if(essential_count <= counseling_number){
+            counseling_check = true;
         }
     }
 }
