@@ -19,12 +19,16 @@ public class authorizedEnglish_score extends nonSubjectActivity{
     private int examScore;
     private int certificationDate;
 
+    Data_nonSubject data= Data_nonSubject.getInstance();
+
+
+    authorizedEnglish_score(){
+        this.scan_nonSubjectActivity();
+    }
 
     @Override
     public void scan_nonSubjectActivity(){ // 액셀 파일에서 정보를 가져오는 메소드
-
-        Data_nonSubject data= Data_nonSubject.getInstance();
-
+        this.examScore=data.getExamScore();
     }
 
     @Override

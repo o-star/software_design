@@ -1,5 +1,6 @@
 package carrer.nonSubject;
 
+import Data.Data_nonSubject;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -12,8 +13,14 @@ import java.io.IOException;
 public class counseling_history extends nonSubjectActivity{
 
     private int counseling_number; // 상담횟수
-    private int essential_count;
     private boolean counseling_check = false; // 졸업요건 상담횟수 충족 확인
+    private int essential_count;
+
+    Data_nonSubject data = Data_nonSubject.getInstance();
+
+    public counseling_history(){
+        scan_nonSubjectActivity();
+    }
 
     public int getCounseling_number() {
         return counseling_number;
@@ -32,7 +39,8 @@ public class counseling_history extends nonSubjectActivity{
     }
 
     @Override
-    public void scan_nonSubjectActivity() { // 액셀 파일에서 정보를 가져오는 메소드
+    public void scan_nonSubjectActivity() {
+        this.counseling_number=data.getCounseling_number();
     }
 
     @Override

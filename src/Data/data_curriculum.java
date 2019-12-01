@@ -1,4 +1,4 @@
-package curriculum_career;
+package Data;
 
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
@@ -11,13 +11,11 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Scanner;
-import java.util.function.DoubleToLongFunction;
+import student.Student;
 
-import student.Main;
 
 public class data_curriculum {
-    Scanner keyboard = new Scanner(System.in);
-    Main a = new Main();
+    Student user = Student.getInstance();
 
     private double all_creadit;//총이수학점
     private double refinement_credit; //교양과목 이수학점
@@ -30,9 +28,19 @@ public class data_curriculum {
     private String[] credit;      //학점
     private String[] curriculum_classification; //교과구분
 
-    String num= a.getNum();
+    private static data_curriculum curriculum;
 
-    public data_curriculum() throws IOException { setter(); }
+    public static data_curriculum getInstance() throws IOException{
+
+        if(curriculum==null)
+            curriculum=new data_curriculum();
+
+        return curriculum;
+    }
+
+    String num= user.getStudent_code();
+
+    data_curriculum() throws IOException { setter(); }
 
     void setter() throws IOException {
         FileInputStream file = new FileInputStream("C:\\Users\\user\\Desktop\\소설 구현\\학생경력정보.xlsx");

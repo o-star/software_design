@@ -1,4 +1,4 @@
-package graduation_requirement;
+package Data;
 
 import student.*;
 

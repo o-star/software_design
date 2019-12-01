@@ -3,7 +3,7 @@ package carrer.nonSubject;
 import student.*;
 
 
-class nonSubjectActivity{
+public class nonSubjectActivity{
 
     Student user = Student.getInstance();
 

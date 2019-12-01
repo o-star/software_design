@@ -12,10 +12,14 @@ public class Main {
         System.out.println(h.getCounseling_number());
         h.change_nonSubjectActivity(6);
 
+        nonSubjectActivity n = new nonSubjectActivity();
+        System.out.println(n.check_all_nonSubject());
         Data_nonSubject d = Data_nonSubject.getInstance();
         System.out.println(d.getCounseling_number());
         System.out.println(d.getExamScore());
         System.out.println(d.getField_credit());
+
+
 
     }
 

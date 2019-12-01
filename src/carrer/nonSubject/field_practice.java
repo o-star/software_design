@@ -12,17 +12,19 @@ import java.io.IOException;
 
 public class field_practice extends nonSubjectActivity{
 
-    private boolean field_practice_check = false;
+    private boolean field_practice_check;
     private int field_credit; // #### class diagram 에 추가되어야 하는 attribute , (1,11) cell 에 있음
     private int essential_field_credit = 3; // 3학점 이상 채우면 pass!
+    Data_nonSubject data = Data_nonSubject.getInstance();
 
-    public int get_credit(){
-        return field_credit;
+
+    field_practice(){
+        scan_nonSubjectActivity();
     }
 
     @Override
-    public void scan_nonSubjectActivity(){ // 액셀 파일에서 정보를 가져오는 메소드
-
+    public void scan_nonSubjectActivity(){
+        this.field_credit=data.getField_credit();
     }
 
 
