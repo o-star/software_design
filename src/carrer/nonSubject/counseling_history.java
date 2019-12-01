@@ -63,7 +63,7 @@ public class counseling_history extends nonSubjectActivity{
                 if ((cell_workbook.getStringCellValue() + "").equals(user.getStudent_code()) == true) {
                     XSSFSheet sheet_student = workbook.getSheetAt(i);     // sheet index
                     XSSFRow row_student = sheet_student.getRow(1);             // row index
-                    XSSFCell cell_student = row_student.getCell(12);            // cell index
+                    XSSFCell cell_student = row_student.getCell(10);            // cell index
                     cell_student.setCellValue(Integer.toString(changed_counseling)); // 수정된 상담횟수를 문자열로 다시 입력
                     System.out.println(changed_counseling);
 

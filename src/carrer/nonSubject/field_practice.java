@@ -17,8 +17,15 @@ public class field_practice extends nonSubjectActivity{
     private int essential_field_credit = 3; // 3학점 이상 채우면 pass!
     Data_nonSubject data = Data_nonSubject.getInstance();
 
+    public boolean isField_practice_check() {
+        return field_practice_check;
+    }
 
-    field_practice(){
+    public int getField_credit() {
+        return field_credit;
+    }
+
+    public field_practice(){
         scan_nonSubjectActivity();
     }
 
@@ -31,7 +38,8 @@ public class field_practice extends nonSubjectActivity{
     @Override
     public void change_nonSubjectActivity(int count){ // 액셀 파일에서 정보를 수정하는 메소드
 
-        int changed_field_credit = field_credit + count;
+        int changed_field_credit=field_credit+count;
+
         try {
             FileInputStream stu_file = new FileInputStream("학생경력정보.xlsx");
             XSSFWorkbook workbook = new XSSFWorkbook(stu_file);
@@ -39,6 +47,7 @@ public class field_practice extends nonSubjectActivity{
 
             boolean condition = true;
             int i = 1;
+            int total_score=0;
 
             while (condition) { // ##### iterator로 수정할 필요..
                 XSSFRow row_workbook = sheet_workbook.getRow(i);             // row index
@@ -46,11 +55,17 @@ public class field_practice extends nonSubjectActivity{
                 if ((cell_workbook.getStringCellValue() + "").equals(user.getStudent_code()) == true) {
                     XSSFSheet sheet_student = workbook.getSheetAt(i);     // sheet index
                     XSSFRow row_student = sheet_student.getRow(1);             // row index
-                    XSSFCell cell_student = row_student.getCell(11);            // cell index
+                    XSSFCell cell_student = row_student.getCell(9);            // cell index
                     cell_student.setCellValue(Integer.toString(changed_field_credit)); // 수정된 상담횟수를 문자열로 다시 입력
+
+                    cell_student=row_student.getCell(1);
+                    total_score=Integer.parseInt(cell_student.getStringCellValue()+"");
+                    total_score=total_score+field_credit;
+                    cell_student.setCellValue(Integer.toString(total_score));
                     field_credit = changed_field_credit;
+
                     try {
-                        FileOutputStream fileoutputstream = new FileOutputStream("졸업요건.xlsx");
+                        FileOutputStream fileoutputstream = new FileOutputStream("학생경력정보.xlsx");
                         workbook.write(fileoutputstream);
                         fileoutputstream.close();
                         System.out.println("엑셀파일생성성공");

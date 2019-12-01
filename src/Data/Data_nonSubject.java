@@ -109,7 +109,8 @@ public class Data_nonSubject {
             if ((cell_workbook.getStringCellValue() + "").equals(user.getStudent_code()) == true) {
                 XSSFSheet sheet_student = workbook.getSheetAt(i);     // sheet index
                 XSSFRow row_student = sheet_student.getRow(1);             // row index
-                XSSFCell cell_student = row_student.getCell(12);
+                XSSFCell cell_student = row_student.getCell(10);
+                if(!("".equals(cell_student.getStringCellValue())))
                 setCounseling_number(Integer.parseInt(cell_student.getStringCellValue() + ""));
                 condition = false;
             }
@@ -131,8 +132,9 @@ public class Data_nonSubject {
             if ((cell_workbook.getStringCellValue() + "").equals(user.getStudent_code()) == true) {
                 XSSFSheet sheet_student = workbook.getSheetAt(i);     // sheet index
                 XSSFRow row_student = sheet_student.getRow(1);             // row index
-                XSSFCell cell_student = row_student.getCell(11);            // cell index
-                setField_credit( this.field_credit = Integer.parseInt(cell_workbook.getStringCellValue() + ""));
+                XSSFCell cell_student = row_student.getCell(9);            // cell index
+                if(!("".equals(cell_student.getStringCellValue())))
+                setField_credit( this.field_credit = Integer.parseInt(cell_student.getStringCellValue() + ""));
                 condition = false;
             }
             i++;
@@ -152,7 +154,8 @@ public class Data_nonSubject {
             if ((cell_workbook.getStringCellValue() + "").equals(user.getStudent_code()) == true) {
                 XSSFSheet sheet_student = workbook.getSheetAt(i);     // sheet index
                 XSSFRow row_student = sheet_student.getRow(1);             // row index
-                XSSFCell cell_student = row_student.getCell(10);            // cell index
+                XSSFCell cell_student = row_student.getCell(8);            // cell index
+                if(!("".equals(cell_student.getStringCellValue())))
                 setExamScore(Integer.parseInt(cell_student.getStringCellValue() + ""));
                 condition = false;
             }

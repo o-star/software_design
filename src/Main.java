@@ -3,6 +3,7 @@ import carrer.nonSubject.*;
 import Data.*;
 
 import java.io.IOException;
+import java.util.Arrays;
 
 public class Main {
 
@@ -12,19 +13,25 @@ public class Main {
         counseling_history h = new counseling_history();
         h.scan_nonSubjectActivity();
         System.out.println(h.getCounseling_number());
-        h.change_nonSubjectActivity(6);
+
+
+        field_practice b = new field_practice();
+
+        graduation_requirement c = graduation_requirement.getInstance();
+        System.out.println(c.getCounseling());
+
+        System.out.println(b.getField_credit());
+
 
         nonSubjectActivity n = new nonSubjectActivity();
-        System.out.println(n.check_all_nonSubject());
 
         Data_nonSubject d = Data_nonSubject.getInstance();
-        System.out.println(d.getCounseling_number());
-        System.out.println(d.getExamScore());
-        System.out.println(d.getField_credit());
+        data_curriculum p = data_curriculum.getInstance();
 
-        graduation_requirement a = graduation_requirement.getInstance();
-        System.out.println(a.getEnglish_grade());
-        System.out.println(a.getBasic_credit());
+        Arrays.toString(p.getCredit());
+        System.out.println(p.getMajor_credit());
+
+
 
 
 

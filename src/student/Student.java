@@ -11,7 +11,7 @@ public class Student { // singleTorn
 
 
     public Student() {
-        this.track = "";
+        this.track = "심화컴퓨터전공";
         this.student_code = "2017091283";
         this.pw = "981230";
     }

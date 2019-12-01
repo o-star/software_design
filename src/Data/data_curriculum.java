@@ -93,7 +93,7 @@ public class data_curriculum {
             global_capability  = Double.parseDouble(cell.getStringCellValue()+"");   // 글로벌 역량 학점
         cell = row.getCell(7);
         s = String.valueOf(cell);
-        if(cell!=null) {
+        if(!s.equals("")) {
             System.out.println(cell.getClass().getName());
             startup_capability = Double.parseDouble(cell.getStringCellValue() + "");  // 창업 역량 학점
         }
