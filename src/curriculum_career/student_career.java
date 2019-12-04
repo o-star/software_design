@@ -30,19 +30,25 @@ public class student_career {
     String num;
     double global_capability;
     double startup_capability;
+
     boolean double_up = false;//재이수
     int credit;//학점
     private static student_career sc;
     Student st=Student.getInstance();
           //  Student user = Student.getInstance();
-    String subject_name = keyboard.nextLine(); //과목명
-    String curriculum_classification = keyboard.nextLine(); //교과구분
-    String grade = keyboard.nextLine();//성적
+    String subject_name; //과목명
+
+    public boolean isGraduation_check() {
+        return graduation_check;
+    }
+
+    String curriculum_classification; //교과구분
+    String grade;//성적
     data_curriculum data ;
     graduation_requirement gr;
 
     public student_career() {
-        data = new data_curriculum();
+        data = data.getInstance();
         track = st.getTrack();
         num = st.getStudent_code();
         refinement_credit = data.getRefinement_credit(); //교양과목 이수학점
@@ -250,7 +256,7 @@ public class student_career {
             data.setter();
 
             try {
-                FileOutputStream fileoutputstream = new FileOutputStream("C:\\Users\\leehandsub\\Desktop\\졸업요건.xlsx");
+                FileOutputStream fileoutputstream = new FileOutputStream("졸업요건.xlsx");
                 workbook.write(fileoutputstream);
                 fileoutputstream.close();
                 System.out.println("엑셀파일생성성공");
@@ -395,8 +401,8 @@ public class student_career {
 
     public void State_update()//상태 업데이트
     {
-        data_curriculum d = new data_curriculum();
-        if (track.equals("심화퓨터전공")) {
+        data_curriculum d = data_curriculum.getInstance();
+        if (track.equals("심화컴퓨터전공")) {
             boolean all_creadit_pass = false;
             boolean base_refinement_credit_pass = false;
             boolean majorbase_credit_pass = false;
@@ -426,6 +432,14 @@ public class student_career {
                 graduation_check = true;
             }
 
+            /* 졸업요건 충족 확인용
+
+            System.out.println(all_creadit_pass);
+            System.out.println(base_refinement_credit_pass);
+            System.out.println(majorbase_credit_pass);
+            System.out.println(major_credit_pass);
+            System.out.println(essential_major_pass);
+             */
         } else if (track.equals("다중전공트랙")) {
             boolean all_creadit_pass = false;
             boolean refinement_credit_pass = false;
@@ -545,6 +559,9 @@ public class student_career {
                 graduation_check = true;
             }
         }
+
+
+
     }
     /* public void State_update()//상태 업데이트
      {

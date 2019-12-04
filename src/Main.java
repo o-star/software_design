@@ -1,7 +1,7 @@
 import student.Student;
 import carrer.nonSubject.*;
 import Data.*;
-
+import curriculum_career.*;
 import java.io.IOException;
 import java.util.Arrays;
 
@@ -25,7 +25,12 @@ public class Main {
 
 
         nonSubjectActivity n = new nonSubjectActivity();
-
+        student_career a = new student_career();
+        // System.out.println(a.getMajor_credit());
+       // System.out.println(a.check_essential_major());
+       // System.out.println(a.check_essential_majorbase());
+        a.State_update();
+        System.out.println(a.isGraduation_check());
         //Data_nonSubject d = Data_nonSubject.getInstance();
         data_curriculum p = data_curriculum.getInstance();
 
