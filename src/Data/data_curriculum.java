@@ -11,11 +11,13 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Scanner;
-import student.Student;
+import java.util.function.DoubleToLongFunction;
 
+import student.*;
 
 public class data_curriculum {
-    Student user = Student.getInstance();
+    Scanner keyboard = new Scanner(System.in);
+    Student stu = Student.getInstance();
 
     private double all_creadit;//총이수학점
     private double refinement_credit; //교양과목 이수학점
@@ -29,6 +31,8 @@ public class data_curriculum {
     private String[] curriculum_classification; //교과구분
 
     private static data_curriculum curriculum;
+    String num= stu.getStudent_code();
+
 
     public static data_curriculum getInstance() throws IOException{
 
@@ -38,12 +42,10 @@ public class data_curriculum {
         return curriculum;
     }
 
-    String num= user.getStudent_code();
-
-    data_curriculum() throws IOException { setter(); }
+    public data_curriculum() throws IOException { setter(); }
 
     void setter() throws IOException {
-        FileInputStream file = new FileInputStream("학생경력정보.xlsx");
+        FileInputStream file = new FileInputStream("C:\\Users\\leehandsub\\Desktop\\학생경력정보.xlsx");
         XSSFWorkbook workbook = new XSSFWorkbook(file);
         XSSFSheet work_sheet=workbook.getSheetAt(0);
         int work_value=0;
@@ -69,19 +71,19 @@ public class data_curriculum {
 
         cell = row.getCell(1);
         s = String.valueOf(cell);
-        if(!s.equals(""))
+        if(!("".equals(cell.getStringCellValue())))
             all_creadit  = Double.parseDouble(cell.getStringCellValue()+"");  //총이수학점
         cell = row.getCell(2);
         s = String.valueOf(cell);
-        if(!s.equals(""))
+        if(!("".equals(cell.getStringCellValue())))
             refinement_credit  = Double.parseDouble(cell.getStringCellValue()+"");  //교양과목 이수학점
         cell = row.getCell(3);
         s = String.valueOf(cell);
-        if(!s.equals(""))
+        if(!("".equals(cell.getStringCellValue())))
             base_refinement_credit  = Double.parseDouble(cell.getStringCellValue()+"");  //기본소양 이수학점
         cell = row.getCell(4);
         s = String.valueOf(cell);
-        if(!s.equals(""))
+        if(!("".equals(cell.getStringCellValue())))
             majorbase_credit  = Double.parseDouble(cell.getStringCellValue()+"");  //전공기반 이수학점
         cell = row.getCell(5);
         s = String.valueOf(cell);
@@ -93,10 +95,9 @@ public class data_curriculum {
             global_capability  = Double.parseDouble(cell.getStringCellValue()+"");   // 글로벌 역량 학점
         cell = row.getCell(7);
         s = String.valueOf(cell);
-        if(!s.equals("")) {
-            System.out.println(cell.getClass().getName());
-            startup_capability = Double.parseDouble(cell.getStringCellValue() + "");  // 창업 역량 학점
-        }
+        if(!s.equals(""))
+            startup_capability  = Double.parseDouble(cell.getStringCellValue()+"");  // 창업 역량 학점
+
 
         subject_name = ary_setter(workbook, work_value, 11);      //과목명
         credit = ary_setter(workbook, work_value, 12);     //학점
@@ -117,7 +118,7 @@ public class data_curriculum {
             for(i=1; i<rows; i++){
                 XSSFRow row=sheet.getRow(i);              // row index
                 XSSFCell cell = row.getCell(columnnum);             // cell index
-                if(cell.getStringCellValue().equals(""))
+                if(cell.getStringCellValue() == "")
                     break;
                 value[i-1] = cell.getStringCellValue()+"";
             }
