@@ -34,7 +34,7 @@ public class data_curriculum {
     String num= stu.getStudent_code();
 
 
-    public static data_curriculum getInstance() throws IOException{
+    public static data_curriculum getInstance() {
 
         if(curriculum==null)
             curriculum=new data_curriculum();
@@ -42,66 +42,72 @@ public class data_curriculum {
         return curriculum;
     }
 
-    public data_curriculum() throws IOException { setter(); }
+    public data_curriculum() { setter(); }
 
-    void setter() throws IOException {
-        FileInputStream file = new FileInputStream("C:\\Users\\leehandsub\\Desktop\\학생경력정보.xlsx");
-        XSSFWorkbook workbook = new XSSFWorkbook(file);
-        XSSFSheet work_sheet=workbook.getSheetAt(0);
-        int work_value=0;
-        String s;
+    public void setter() {
 
-        XSSFSheet sheet=workbook.getSheetAt(0);     // sheet index
-        int rows = sheet.getPhysicalNumberOfRows(); // 해당 시트의 행의 개수
-        for (int rowIndex = 0; rowIndex < rows; rowIndex++) {
-            XSSFRow row = sheet.getRow(rowIndex); // 각 행을 읽어온다
-            if (row != null) {
-                XSSFCell cell = row.getCell(1);//학번 비교하기
-                String value = cell.getStringCellValue() + "";
-                if (value.equals(num)) {
-                    XSSFCell num_cell = row.getCell(0);//몇번째 시트인지 찾기
-                    work_value = Integer.parseInt(num_cell.getStringCellValue() + "");
-                    work_sheet = workbook.getSheetAt(work_value);//시트 도착
-                    break;
+        try {
+            FileInputStream file = new FileInputStream("C:\\Users\\leehandsub\\Desktop\\학생경력정보.xlsx");
+            XSSFWorkbook workbook = new XSSFWorkbook(file);
+            XSSFSheet work_sheet = workbook.getSheetAt(0);
+            int work_value = 0;
+            String s;
+
+            XSSFSheet sheet = workbook.getSheetAt(0);     // sheet index
+            int rows = sheet.getPhysicalNumberOfRows(); // 해당 시트의 행의 개수
+            for (int rowIndex = 0; rowIndex < rows; rowIndex++) {
+                XSSFRow row = sheet.getRow(rowIndex); // 각 행을 읽어온다
+                if (row != null) {
+                    XSSFCell cell = row.getCell(1);//학번 비교하기
+                    String value = cell.getStringCellValue() + "";
+                    if (value.equals(num)) {
+                        XSSFCell num_cell = row.getCell(0);//몇번째 시트인지 찾기
+                        work_value = Integer.parseInt(num_cell.getStringCellValue() + "");
+                        work_sheet = workbook.getSheetAt(work_value);//시트 도착
+                        break;
+                    }
                 }
             }
+            XSSFRow row = work_sheet.getRow(1);
+            XSSFCell cell;
+
+            cell = row.getCell(1);
+            s = String.valueOf(cell);
+            if (!("".equals(cell.getStringCellValue())))
+                all_creadit = Double.parseDouble(cell.getStringCellValue() + "");  //총이수학점
+            cell = row.getCell(2);
+            s = String.valueOf(cell);
+            if (!("".equals(cell.getStringCellValue())))
+                refinement_credit = Double.parseDouble(cell.getStringCellValue() + "");  //교양과목 이수학점
+            cell = row.getCell(3);
+            s = String.valueOf(cell);
+            if (!("".equals(cell.getStringCellValue())))
+                base_refinement_credit = Double.parseDouble(cell.getStringCellValue() + "");  //기본소양 이수학점
+            cell = row.getCell(4);
+            s = String.valueOf(cell);
+            if (!("".equals(cell.getStringCellValue())))
+                majorbase_credit = Double.parseDouble(cell.getStringCellValue() + "");  //전공기반 이수학점
+            cell = row.getCell(5);
+            s = String.valueOf(cell);
+            if (!s.equals(""))
+                major_credit = Double.parseDouble(cell.getStringCellValue() + "");  //전공 이수학점
+            cell = row.getCell(6);
+            s = String.valueOf(cell);
+            if (!s.equals(""))
+                global_capability = Double.parseDouble(cell.getStringCellValue() + "");   // 글로벌 역량 학점
+            cell = row.getCell(7);
+            s = String.valueOf(cell);
+            if (!s.equals(""))
+                startup_capability = Double.parseDouble(cell.getStringCellValue() + "");  // 창업 역량 학점
+
+
+            subject_name = ary_setter(workbook, work_value, 11);      //과목명
+            credit = ary_setter(workbook, work_value, 12);     //학점
+            curriculum_classification = ary_setter(workbook, work_value, 13); //교과구분
         }
-        XSSFRow row = work_sheet.getRow(1);
-        XSSFCell cell;
-
-        cell = row.getCell(1);
-        s = String.valueOf(cell);
-        if(!("".equals(cell.getStringCellValue())))
-            all_creadit  = Double.parseDouble(cell.getStringCellValue()+"");  //총이수학점
-        cell = row.getCell(2);
-        s = String.valueOf(cell);
-        if(!("".equals(cell.getStringCellValue())))
-            refinement_credit  = Double.parseDouble(cell.getStringCellValue()+"");  //교양과목 이수학점
-        cell = row.getCell(3);
-        s = String.valueOf(cell);
-        if(!("".equals(cell.getStringCellValue())))
-            base_refinement_credit  = Double.parseDouble(cell.getStringCellValue()+"");  //기본소양 이수학점
-        cell = row.getCell(4);
-        s = String.valueOf(cell);
-        if(!("".equals(cell.getStringCellValue())))
-            majorbase_credit  = Double.parseDouble(cell.getStringCellValue()+"");  //전공기반 이수학점
-        cell = row.getCell(5);
-        s = String.valueOf(cell);
-        if(!s.equals(""))
-            major_credit  = Double.parseDouble(cell.getStringCellValue()+"");  //전공 이수학점
-        cell = row.getCell(6);
-        s = String.valueOf(cell);
-        if(!s.equals(""))
-            global_capability  = Double.parseDouble(cell.getStringCellValue()+"");   // 글로벌 역량 학점
-        cell = row.getCell(7);
-        s = String.valueOf(cell);
-        if(!s.equals(""))
-            startup_capability  = Double.parseDouble(cell.getStringCellValue()+"");  // 창업 역량 학점
-
-
-        subject_name = ary_setter(workbook, work_value, 11);      //과목명
-        credit = ary_setter(workbook, work_value, 12);     //학점
-        curriculum_classification = ary_setter(workbook, work_value, 13); //교과구분
+        catch(Exception e){
+            e.printStackTrace();
+        }
     }
 
     private String[] ary_setter(XSSFWorkbook workbook, int sheetnum, int columnnum){
