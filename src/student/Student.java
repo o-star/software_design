@@ -20,6 +20,8 @@ public class Student { // singleTorn
         this.track = "";
         this.student_code = "2017091283";
         this.pw = "981230";
+
+        setTrack();
     }
 
     public static Student getInstance() {
@@ -41,13 +43,13 @@ public class Student { // singleTorn
     }
 
     public String getTrack() {
-        return track;
+        return this.track;
     }
 
     public void setTrack() {
 
         try {
-            FileInputStream file = new FileInputStream("C:\\Users\\leehandsub\\Desktop\\학생경력정보.xlsx");
+            FileInputStream file = new FileInputStream("학생경력정보.xlsx");
             XSSFWorkbook workbook = new XSSFWorkbook(file);
 
             XSSFSheet sheet = workbook.getSheetAt(0);     // sheet index
@@ -57,7 +59,7 @@ public class Student { // singleTorn
                 if (row != null) {
                     XSSFCell cell = row.getCell(1);//학번 비교하기
                     String value = cell.getStringCellValue() + "";
-                    System.out.println(value);
+                   // System.out.println(value);
                     if (value.equals(student_code)) {
                         XSSFCell num_cell = row.getCell(0);//몇번째 시트인지 찾기
                         String work_value = num_cell.getStringCellValue() + "";

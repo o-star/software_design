@@ -10,6 +10,7 @@ public class Main {
     public static void main(String[] args) throws IOException {
 
         Student user = Student.getInstance();
+        System.out.println(user.getTrack());
         //counseling_history h = new counseling_history();
         //h.scan_nonSubjectActivity();
         //System.out.println(h.getCounseling_number());
@@ -28,7 +29,8 @@ public class Main {
         //Data_nonSubject d = Data_nonSubject.getInstance();
         data_curriculum p = data_curriculum.getInstance();
 
-        Arrays.toString(p.getCredit());
+        System.out.println(Arrays.toString(p.getCurriculum_classification()));
+        System.out.println(p.getMajorbase_credit());
         System.out.println(p.getMajor_credit());
 
 
