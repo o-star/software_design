@@ -304,7 +304,7 @@ public class student_career {
 
     public void State_update()//상태 업데이트
     {
-        data_curriculum d = new data_curriculum();
+        //data_curriculum d = new data_curriculum();
         if (track.equals("심화퓨터전공")) {
             boolean all_creadit_pass = false;
             boolean base_refinement_credit_pass = false;
@@ -315,7 +315,7 @@ public class student_career {
 
             if (all_creadit >= 150){ //총이수
                 all_creadit_pass = true;
-                System.out.println(all_creadit);
+                //System.out.println(all_creadit);
             }
             if (base_refinement_credit >= 15){ //기본소양
                 base_refinement_credit_pass = true;
