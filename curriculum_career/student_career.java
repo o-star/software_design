@@ -358,15 +358,19 @@ public class student_career {
 
             if (all_creadit >= 150){ //총이수
                 all_creadit_pass = true;
+                System.out.println("all_creadit_pass");
             }
             if (base_refinement_credit >= 15){ //기본소양
                 base_refinement_credit_pass = true;
+                System.out.println("base_refinement_credit_pass");
             }
             if (majorbase_credit >= 22){ //전공기반
                 majorbase_credit_pass = true;
+                System.out.println("majorbase_credit_pass");
             }
             if (major_credit >= 75){ //전공
                 major_credit_pass = true;
+                System.out.println("major_credit_pass");
             }
             if(check_essential_major()){//필수전공 체크
                essential_major_pass = true;
@@ -377,6 +381,8 @@ public class student_career {
             if(all_creadit_pass && base_refinement_credit_pass && majorbase_credit_pass && major_credit_pass && essential_major_pass && essential_majorbase_pass ){
                 graduation_check = true;
             }
+
+
 
         } else if (track.equals("다중전공트랙")) {
             boolean all_creadit_pass = false;
@@ -546,4 +552,9 @@ public class student_career {
     public String getSubject_name() {
         return subject_name;
     }
+    public boolean getGraduation_check()
+    {
+        return graduation_check;
+    }
+
 }

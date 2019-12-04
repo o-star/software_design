@@ -35,7 +35,7 @@ public class data_curriculum {
     public data_curriculum() throws IOException { setter(); }
 
     void setter() throws IOException {
-        FileInputStream file = new FileInputStream("C:\\Users\\leehandsub\\Desktop\\학생경력정보.xlsx");
+        FileInputStream file = new FileInputStream("C:\\Users\\HyunSU\\Desktop\\software_design-mook\\학생경력정보.xlsx");
         XSSFWorkbook workbook = new XSSFWorkbook(file);
         XSSFSheet work_sheet=workbook.getSheetAt(0);
         int work_value=0;
@@ -61,19 +61,19 @@ public class data_curriculum {
 
         cell = row.getCell(1);
         s = String.valueOf(cell);
-        if(!("".equals(cell.getStringCellValue())))
+        if(!s.equals(""))
             all_creadit  = Double.parseDouble(cell.getStringCellValue()+"");  //총이수학점
         cell = row.getCell(2);
         s = String.valueOf(cell);
-        if(!("".equals(cell.getStringCellValue())))
+        if(!s.equals(""))
             refinement_credit  = Double.parseDouble(cell.getStringCellValue()+"");  //교양과목 이수학점
         cell = row.getCell(3);
         s = String.valueOf(cell);
-        if(!("".equals(cell.getStringCellValue())))
+        if(!s.equals(""))
             base_refinement_credit  = Double.parseDouble(cell.getStringCellValue()+"");  //기본소양 이수학점
         cell = row.getCell(4);
         s = String.valueOf(cell);
-        if(!("".equals(cell.getStringCellValue())))
+        if(!s.equals(""))
             majorbase_credit  = Double.parseDouble(cell.getStringCellValue()+"");  //전공기반 이수학점
         cell = row.getCell(5);
         s = String.valueOf(cell);
