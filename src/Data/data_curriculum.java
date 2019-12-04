@@ -47,7 +47,7 @@ public class data_curriculum {
     public void setter() {
 
         try {
-            FileInputStream file = new FileInputStream("C:\\Users\\leehandsub\\Desktop\\학생경력정보.xlsx");
+            FileInputStream file = new FileInputStream("학생경력정보.xlsx");
             XSSFWorkbook workbook = new XSSFWorkbook(file);
             XSSFSheet work_sheet = workbook.getSheetAt(0);
             int work_value = 0;

@@ -65,9 +65,13 @@ public class student_career {
     }
     public void Curriculum_Career_input()//교과 경력 입력
     {
+
+        subject_name = keyboard.nextLine(); //과목명
+        curriculum_classification = keyboard.nextLine(); //교과구분
+        grade = keyboard.nextLine();//성적
         try {
             Student stu = new Student();
-            FileInputStream file = new FileInputStream("C:\\Users\\leehandsub\\Desktop\\학생경력정보.xlsx");
+            FileInputStream file = new FileInputStream("학생경력정보.xlsx");
             XSSFWorkbook workbook = new XSSFWorkbook(file);
 
             XSSFSheet sheet = workbook.getSheetAt(0);     // sheet index
@@ -105,7 +109,7 @@ public class student_career {
             file.close();
             data.setter();
             try {
-                FileOutputStream fileoutputstream = new FileOutputStream("C:\\Users\\leehandsub\\Desktop\\학생경력정보.xlsx");
+                FileOutputStream fileoutputstream = new FileOutputStream("학생경력정보.xlsx");
                 workbook.write(fileoutputstream);
                 fileoutputstream.close();
                 System.out.println("엑셀파일생성성공");
@@ -213,7 +217,7 @@ public class student_career {
     {
         try {
             Student stu = new Student();
-            FileInputStream file = new FileInputStream("C:\\Users\\leehandsub\\Desktop\\졸업요건.xlsx");
+            FileInputStream file = new FileInputStream("졸업요건.xlsx");
             XSSFWorkbook workbook = new XSSFWorkbook(file);
 
             XSSFSheet sheet = workbook.getSheetAt(0);     // sheet index
