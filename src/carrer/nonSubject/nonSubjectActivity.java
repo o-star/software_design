@@ -1,11 +1,13 @@
 package carrer.nonSubject;
 
+import Data.Data_nonSubject;
 import student.*;
-
+import Data.graduation_requirement;
 
 public class nonSubjectActivity{
 
     Student user = Student.getInstance();
+    graduation_requirement graduation = graduation_requirement.getInstance();
 
     private boolean graduation_check=false;
 
@@ -26,7 +28,7 @@ public class nonSubjectActivity{
         this.graduation_check = graduation_check;
     }
 
-    public boolean check_all_nonSubject(){
+    public boolean check_all_nonSubject(){  // 졸업요건 충족현황 확인
 
         field_practice field = new field_practice();
         authorizedEnglish_score authorizedEnglish = new authorizedEnglish_score();

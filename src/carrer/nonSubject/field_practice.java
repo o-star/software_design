@@ -14,7 +14,8 @@ public class field_practice extends nonSubjectActivity{
 
     private boolean field_practice_check;
     private int field_credit; // #### class diagram 에 추가되어야 하는 attribute , (1,11) cell 에 있음
-    private int essential_field_credit = 3; // 3학점 이상 채우면 pass!
+    private double essential_field_credit; // 3학점 이상 채우면 pass!
+
     Data_nonSubject data = Data_nonSubject.getInstance();
 
     public boolean isField_practice_check() {
@@ -86,6 +87,9 @@ public class field_practice extends nonSubjectActivity{
 
     @Override
     public boolean check_career(){ // 경력 조건 인정
+
+        essential_field_credit=graduation.getPractical_grade();
+
         if(this.field_credit >= this.essential_field_credit)
         {
             this.field_practice_check = true;

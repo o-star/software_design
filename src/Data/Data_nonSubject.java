@@ -13,9 +13,7 @@ public class Data_nonSubject {
     Student user = Student.getInstance();
     private int counseling_number;
     private int field_credit; // #### class diagram 에 추가되어야 하는 attribute , (1,11) cell 에 있음
-    private String authorized_examName;
     private int examScore;
-    private int examCnt;
 
     private static Data_nonSubject data;
 
@@ -37,16 +35,8 @@ public class Data_nonSubject {
         return field_credit;
     }
 
-    public String getAuthorized_examName() {
-        return authorized_examName;
-    }
-
     public int getExamScore() {
         return examScore;
-    }
-
-    public int getExamCnt() {
-        return examCnt;
     }
 
     public static Data_nonSubject getData() {
@@ -61,22 +51,15 @@ public class Data_nonSubject {
         this.field_credit = field_credit;
     }
 
-    public void setAuthorized_examName(String authorized_examName) {
-        this.authorized_examName = authorized_examName;
-    }
-
     public void setExamScore(int examScore) {
         this.examScore = examScore;
     }
 
-    public void setExamCnt(int examCnt) {
-        this.examCnt = examCnt;
-    }
+
 
     Data_nonSubject() {
         /* 엑셀파일로부터 정보를 불러올 setter */
         read_alldata();
-
     }
 
     public void read_alldata() {

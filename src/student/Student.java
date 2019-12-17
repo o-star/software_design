@@ -15,12 +15,10 @@ public class Student { // singleTorn
     private String student_code;
     private String pw;
 
-
     public Student() {
         this.track = "";
         this.student_code = "2017091283";
         this.pw = "981230";
-
         setTrack();
     }
 

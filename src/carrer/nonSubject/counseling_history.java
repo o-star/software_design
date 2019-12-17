@@ -14,7 +14,7 @@ public class counseling_history extends nonSubjectActivity{
 
     private int counseling_number; // 상담횟수
     private boolean counseling_check = false; // 졸업요건 상담횟수 충족 확인
-    private int essential_count;
+    private double essential_count;
 
     Data_nonSubject data = Data_nonSubject.getInstance();
 
@@ -89,6 +89,7 @@ public class counseling_history extends nonSubjectActivity{
 
     @Override
     public boolean check_career() { // 경력 조건 인정
+        essential_count=graduation.getCounseling();
         if(essential_count <= counseling_number){
             counseling_check = true;
         }
